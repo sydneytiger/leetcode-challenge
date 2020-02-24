@@ -1,4 +1,4 @@
-### Squres of a sorted array
+### 977 Squres of a sorted array
 ```javascript
 /**
  * @param {number[]} A
@@ -30,4 +30,4 @@ var sortedSquares = function(A) {
 
     return result;
 };
-``
+```
