@@ -1,0 +1,41 @@
+### 680. Valid Palindrome II
+```javascript
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+// time complexity O(n) space complexity O(1)
+// palindrome compare by two pointers.
+// when charecters are different, 
+// move left pointer forward one or move right pointer backward one
+// then continue comparition respectivly.
+var validPalindrome = function(s) {
+  let l = 0, r = s.length - 1;
+  while(l <= r) {
+    if(s[l] !== s[r]) break;
+    ++l;
+    --r;
+  }
+  
+  let ll = l + 1, rr = r - 1, isLLPalindrome = true, isRRPalindrom = true;
+  while(ll <= r) {
+    if(s[ll] !== s[r]) {
+      isLLPalindrome = false;
+      break;
+    }
+    ll++;
+    r--;
+  }
+  
+  while(l <= rr) {
+    if(s[l] !== s[rr]) {
+      isRRPalindrom = false;
+      break;
+    }
+    l++;
+    rr--;
+  }
+  
+  return isLLPalindrome || isRRPalindrom;
+};
+```
