@@ -1,0 +1,26 @@
+### 46. Permutations
+```javascript
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permute = function(nums) {
+  const result = [];
+  dfs(nums, [], result);
+  return result;
+};
+
+const dfs = (nums, set, result) => {
+  if(set.length === nums.length) {
+    result.push([...set]);
+  } else {
+    for(let num of nums) {
+      if(!set.includes(num)) {
+        set.push(num);
+        dfs(nums, set, result);
+        set.pop();
+      }
+    }
+  }
+}
+```
